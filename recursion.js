@@ -26,10 +26,15 @@ function everyOther(str, idx = 0, newString = "") {
 /** isPalindrome: checks whether a string is a palindrome or not. */
 
 function isPalindrome(str, idx = 0) {
+  // Grab our left most indx, which will always start at 0
   let leftIdx = idx;
+  // Grab our right most, so str length. Given that we use 0 base indx, we subtract one. We also subtract by our idx to continue our comparison each recursion.
   let rightIdx = str.length - idx - 1;
+  // We use >= due to some words having odd or even numbers of letters, they may not have a meeting in the middle.
   if (leftIdx >= rightIdx) return true;
+  // If our str[idx]'s do not remain equivilent, return false.
   if (str[leftIdx] !== str[rightIdx]) return false;
+  // Continue
   return isPalindrome(str, idx + 1);
 }
 
